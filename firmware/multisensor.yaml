@@ -1,0 +1,157 @@
+substitutions:
+  device_name: occup-light-gas-sensor
+  device_name_pretty: Multi Sensor
+  # temperature sensor SCL pin - - this must be linked to the SCL pin of the BME680 sensor
+  scl_pin: GPIO5
+  # temperature sensor SDA pin - this must be linked to the SDA pin of the BME680 sensor
+  sda_pin: GPIO4
+  # UART Pin configured for mmWave sensor
+  uart_tx_pin: GPIO12
+  # TX Pin configured for mmWave sensor - this must be linked to the RX Pin on the radar
+  uart_rx_pin: GPIO13
+  # TX Pin configured for mmWave sensor - this must be linked to the TX Pin on the radar
+  gpio_pin: GPIO16
+  # PIR sensor pin
+  pir_pin: GPIO14
+
+# include the yml file with the radar code and configuration
+packages:
+  inclusions: !include packages/leapmmw_sensor.yml
+
+esphome:
+  name: $device_name
+
+# esp8266:
+#   board: d1_mini
+
+esp8266:
+   board: esp07
+
+# esp32:
+#   board: wemos_d1_mini32
+#   framework:
+#     type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: ""
+
+ota:
+  password: ""
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${device_name_pretty}"
+    password: !secret wifi_password
+
+#captive_portal:
+
+#web_server:
+#  port: 80
+#  version: 2
+#  include_internal: true
+
+binary_sensor:
+  - platform: gpio
+    pin: ${pir_pin}
+    name: "PIR Sensor"
+    device_class: motion
+
+i2c:
+  sda: ${sda_pin}
+  scl: ${scl_pin}
+  
+bme680_bsec:
+  address: 0x76
+  sample_rate: lp
+  state_save_interval: 1h
+  #temperature_offset: 1.42  #(calibration without mmWave radar & v2 case version)
+  #temperature_offset: 1.81  #(calibrated without mmWave radar & v1 case version)
+  temperature_offset: 2.48   #(calibration with mmWave radar & v1 case version)
+
+sensor:
+  - platform: bh1750  #illuminance sensor
+    name: "${device_name_pretty} Illuminance"
+    address: 0x23
+    update_interval: 10s
+
+  - platform: bme680_bsec
+    temperature:
+      # Temperature in °C
+      name: "${device_name_pretty} Temperature"
+      sample_rate: lp
+      accuracy_decimals: 2
+      filters:
+        - sliding_window_moving_average:
+            window_size: 20
+            send_every: 20
+        
+    pressure:
+      name: "${device_name_pretty} Pressure"
+      sample_rate: lp
+      filters:
+        - median
+    humidity:
+      name: "${device_name_pretty} Humidity"
+      sample_rate: lp
+      filters:
+        - median
+    gas_resistance:
+      name: "${device_name_pretty} Gas Resistance"
+      filters:
+        - median
+    iaq:
+      name: "${device_name_pretty} IAQ"
+      id: iaq
+      filters:
+        - median
+    iaq_accuracy:
+      name: "${device_name_pretty} IAQ Accuracy"
+    co2_equivalent:
+      name: "${device_name_pretty} CO2 Equivalent"
+      filters:
+        - median
+    breath_voc_equivalent:
+      name: "${device_name_pretty} Breath VOC Equivalent"
+      filters:
+        - median
+
+text_sensor:
+  - platform: bme680_bsec
+    iaq_accuracy:
+      name: "${device_name_pretty} IAQ Accuracy"
+  - platform: template
+    name: "${device_name_pretty} Air Quality"
+    icon: "mdi:checkbox-marked-circle-outline"
+    lambda: |-
+      if ( int(id(iaq).state) <= 50) {
+        return {"Excellent"};
+      }
+      else if (int(id(iaq).state) >= 51 && int(id(iaq).state) <= 100) {
+        return {"Good"};
+      }
+      else if (int(id(iaq).state) >= 101 && int(id(iaq).state) <= 150) {
+        return {"Lightly polluted"};
+      }
+      else if (int(id(iaq).state) >= 151 && int(id(iaq).state) <= 200) {
+        return {"Moderately polluted"};
+      }
+      else if (int(id(iaq).state) >= 201 && int(id(iaq).state) <= 250) {
+        return {"Heavily polluted"};
+      }
+      else if (int(id(iaq).state) >= 251 && int(id(iaq).state) <= 350) {
+        return {"Severely polluted"};
+      }
+      else if (int(id(iaq).state) >= 351) {
+        return {"Extremely polluted"};
+      }
+      else {
+        return {"error"};
+      }
