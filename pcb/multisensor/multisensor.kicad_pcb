@@ -308,8 +308,8 @@
         )
       )
     )
-    (model "../../3dmodels/ESP-07/ESP-07.wrl"
-      (offset (xyz 0 0 0))
+    (model "../../3dmodels/ESP-07/ESP-07.step"
+      (offset (xyz 0 -0.15 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
