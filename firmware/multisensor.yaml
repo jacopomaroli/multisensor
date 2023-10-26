@@ -91,8 +91,7 @@ sensor:
       filters:
         - sliding_window_moving_average:
             window_size: 20
-            send_every: 20
-        
+            send_every: 20  
     pressure:
       name: "${device_name_pretty} Pressure"
       sample_rate: lp
