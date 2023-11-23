@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "TAJB107M006RNJ")(type "KiCad")(uri "${KIPRJMOD}/../3rdparty/symbols/TANTALUM-SMD-100UF-6.3V_AVX-B_.kicad_sym")(options "")(descr "TAJB107M006RNJ"))
+)
