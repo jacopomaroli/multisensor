@@ -1,0 +1,31 @@
+### Footprint positions - created on Tue Dec  5 18:17:06 2023 ###
+### Printed by KiCad version 7.0.8
+## Unit = mm, Angle = deg.
+## Side : All
+# Ref     Val              Package                                 PosX       PosY       Rot  Side
+J2        mmWave_Data      PinSocket_1x06_P2.54mm_Vertical      37.7000    29.8350  180.0000  bottom
+J3        mmWave_Support   PinSocket_1x02_P2.54mm_Vertical      12.3000    24.7600  180.0000  bottom
+J4        PIR_Sensor       PinSocket_1x03_P2.54mm_Vertical      22.4600     8.7800  -90.0000  bottom
+C1        10uF             C_1206_3216Metric                    10.8750     6.0099  180.0000  top
+C2        .1uF             C_1206_3216Metric                    10.8750     8.5099  180.0000  top
+C3        10uF             C_1206_3216Metric                    10.8750    15.3099  180.0000  top
+C4        .1uF             C_1206_3216Metric                    10.8750    17.8099  180.0000  top
+C5        4.7nF            C_1206_3216Metric                     9.0875    31.2125   90.0000  top
+J1        TTL              PinSocket_1x06_P2.54mm_Vertical      18.6750    12.6825   90.0000  top
+J5        BME680           PinSocket_1x06_P2.54mm_Horizontal     3.0000    26.3250    0.0000  top
+J6        BH1750           PinSocket_1x05_P2.54mm_Horizontal    47.0000    14.9000  180.0000  top
+J7        10118193-0001LF  AMPHENOL_10118193-0001LF             25.0000     1.4500    0.0000  top
+Q1        PN2222A          SOT-23                               31.1625    16.4913    0.0000  top
+Q2        PN2222A          SOT-23                               18.8600    16.4913  180.0000  top
+R1        10k              R_0805_2012Metric                    25.1875    15.4883    0.0000  top
+R2        10k              R_0805_2012Metric                    25.1875    17.4942  180.0000  top
+R3        10k              R_0805_2012Metric                    11.4875    31.2125  -90.0000  top
+R4        10k              R_0805_2012Metric                    12.4000    34.3000    0.0000  top
+R5        10k              R_0805_2012Metric                    41.4875    22.3000    0.0000  top
+R6        10k              R_0805_2012Metric                    41.4875    26.3000  180.0000  top
+R7        10k              R_0805_2012Metric                    41.4875    28.3000  180.0000  top
+R8        10k              R_0805_2012Metric                    41.4875    30.3000  180.0000  top
+SW1       RESET            SW_PUSH_6mm                          36.7500    12.2500    0.0000  top
+U1        ESP-07           ESP-07                               25.0000    29.4000    0.0000  top
+U2        TLV75533PDBV     SOT-23-5                             10.8750    11.9099   90.0000  top
+## End

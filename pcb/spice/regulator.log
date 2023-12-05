@@ -1,0 +1,48 @@
+Circuit: * D:\development\electronic\projects\multisensor\multisensor\pcb\spice\regulator.asc
+
+Questionable use of curly braces in "b§e_abm1 n508352 0 v={min(v(n501262),(v(vzz_int)+({ilim}*{rout})))}"
+    Error: undefined symbol in: "min([v](n501262),(v(vzz_int)+((ilim)*(rout))))"
+Questionable use of curly braces in "b§e_abm10 n508434 0 v={if(v(vout1)<0.36&v(load)>0.99*{ilim},1,0)}"
+    Error: undefined symbol in: "if([v](vout1)<0.36&v(load)>0.99*(ilim),1,0)"
+Questionable use of curly braces in "b§g_u1_abmi1 u1_n08522 u1_n08530 i={if(v(en_ok)>0.5&v(u1_vin_ok)>0.5,0.06,0)} "
+    Error: undefined symbol in: "if([v](en_ok)>0.5&v(u1_vin_ok)>0.5,0.06,0)"
+Questionable use of curly braces in "b§e_abm2 n508184 0 v={max(v(vzz_int)+(v(i_foldback)*{rout}),(v(vzz_int)+({isc}*{rout})))}"
+    Error: undefined symbol in: "max([v](vzz_int)+(v(i_foldback)*(rout)),(v(vzz_int)+((isc)*(rout))))"
+Questionable use of curly braces in "b§e_abmgate1 yint1 0 v={if(v(a)>{{vthresh}},{{vdd}},{{vss}})}"
+    Error: undefined symbol in: "if([v](a)>((vthresh)),((vdd)),((vss)))"
+Questionable use of curly braces in "b§e_abmgate2 yint3 0 v={if(v(yint2)>{{vthresh}},{{vss}},{{vdd}})}"
+    Error: undefined symbol in: "if([v](yint2)>((vthresh)),((vss)),((vdd)))"
+Questionable use of curly braces in "b§e_abmgate1 yint1 0 v={if(v(a)>{{vthresh}},{{vdd}},{{vss}})}"
+    Error: undefined symbol in: "if([v](a)>((vthresh)),((vdd)),((vss)))"
+Questionable use of curly braces in "b§e_abmgate2 yint3 0 v={if(v(yint2)>{{vthresh}},{{vdd}},{{vss}})}"
+    Error: undefined symbol in: "if([v](yint2)>((vthresh)),((vdd)),((vss)))"
+Questionable use of curly braces in "b§e_abmgate1 yint1 0 v={if(v(a)>{{vthresh}},{{vdd}},{{vss}})}"
+    Error: undefined symbol in: "if([v](a)>((vthresh)),((vdd)),((vss)))"
+Questionable use of curly braces in "b§e_abmgate2 yint3 0 v={if(v(yint2)>{{vthresh}},{{vdd}},{{vss}})}"
+    Error: undefined symbol in: "if([v](yint2)>((vthresh)),((vdd)),((vss)))"
+Questionable use of curly braces in "b§e_abmgate yint 0 v={if(v(a)>{{vthresh}},{{vdd}},{{vss}})}"
+    Error: undefined symbol in: "if([v](a)>((vthresh)),((vdd)),((vss)))"
+Unknown node in .ic card: "vc2" -- ignoring
+Unknown node in .ic card: "vc3" -- ignoring
+Unknown node in .ic card: "vc4" -- ignoring
+WARNING: Less than two connections to node nc_01.  This node is used by r:u1:_nc.
+Direct Newton iteration for .op point succeeded.
+
+Date: Sun Dec  3 12:08:57 2023
+Total elapsed time: 0.114 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 4284
+traniter = 4274
+tranpoints = 1483
+accept = 1382
+rejected = 101
+matrix size = 122
+fillins = 62
+solver = Normal
+Avg thread counts: 2.4/5.0/5.0/2.4
+Matrix Compiler1: 5.22 KB object code size  1.3/0.8/[0.6]
+Matrix Compiler2: 8.27 KB object code size  0.7/1.5/[0.6]
+
