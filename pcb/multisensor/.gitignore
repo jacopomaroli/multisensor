@@ -31,3 +31,5 @@ fp-info-cache
 *.html
 
 \#auto_saved_files#
+manufacturing/gerber.zip
+manufacturing/multisensor-all.zip

@@ -1,4 +1,4 @@
-### Footprint positions - created on Tue Dec  5 18:17:06 2023 ###
+### Footprint positions - created on Tue Dec  5 19:20:05 2023 ###
 ### Printed by KiCad version 7.0.8
 ## Unit = mm, Angle = deg.
 ## Side : All
@@ -25,7 +25,7 @@ R5        10k              R_0805_2012Metric                    41.4875    22.30
 R6        10k              R_0805_2012Metric                    41.4875    26.3000  180.0000  top
 R7        10k              R_0805_2012Metric                    41.4875    28.3000  180.0000  top
 R8        10k              R_0805_2012Metric                    41.4875    30.3000  180.0000  top
-SW1       RESET            SW_PUSH_6mm                          36.7500    12.2500    0.0000  top
+SW1       RESET            SW_PUSH_6mm                          36.4000    12.4000    0.0000  top
 U1        ESP-07           ESP-07                               25.0000    29.4000    0.0000  top
 U2        TLV75533PDBV     SOT-23-5                             10.8750    11.9099   90.0000  top
 ## End
